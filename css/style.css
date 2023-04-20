@@ -1,0 +1,244 @@
+/* variable set */
+:root {
+  --main-clr: rgba(0, 120, 109);
+}
+/* css reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(2 24 22 / 29%);
+}
+body::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #5cd15a;
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* main css code */
+.taskInput {
+  margin: 30px auto;
+  width: 800px;
+  background-color: var(--main-clr);
+  font-size: 2rem;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  display: flex;
+}
+
+.taskInput .task {
+  flex: 1;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  outline: none;
+  border: none;
+  padding: 0.3em;
+  text-transform: capitalize;
+  caret-color: var(--main-clr);
+}
+.taskInput .addTask {
+  border: 5px solid white;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  margin-left: -33px;
+  background: var(--main-clr);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.5s, color 0.5s 0.3s;
+}
+.taskInput .addTask:hover {
+  transform: rotate(90deg);
+  color: red;
+}
+.taskList {
+  width: 800px;
+  margin: 0 auto;
+  text-transform: capitalize;
+  background: var(--main-clr);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 2rem;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.taskList::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(2 24 22 / 29%);
+}
+.taskList::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #5cd15a;
+  border-radius: 100vw;
+}
+.taskList .title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+.taskList .statistique {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding-inline: 10px;
+}
+.taskList .statistique .completed .completedStat {
+  padding: 0 5px;
+  background: #00009a;
+  font-weight: 900;
+  border-radius: 0 0.5em;
+}
+.taskList .statistique .toDo .toDoStat {
+  padding: 0 5px;
+  background: #9a0000;
+  font-weight: 900;
+  border-radius: 0 0.5em;
+}
+.taskList .myList {
+  list-style-type: none;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-inline: 10px;
+}
+.taskList .myList li {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.taskList .myList li p {
+  flex: 1;
+  font-size: 1.2em;
+  background: white;
+  color: black;
+  border-top-left-radius: 0.3em;
+  border-bottom-left-radius: 0.3em;
+  max-width: 100%;
+  padding: 0.5em 155px 0.5em 0.3em;
+}
+.taskList .myList li .delete {
+  border: 5px solid white;
+  width: 77px;
+  height: 37px;
+  border-radius: 20%;
+  text-transform: capitalize;
+  margin-left: -15px;
+  background: red;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  cursor: pointer;
+  transition: 0.3s;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.taskList .myList li .delete:hover {
+  background-color: #e78787;
+}
+.taskList .myList li .check {
+  border: 5px solid white;
+  width: 77px;
+  height: 37px;
+  border-radius: 20%;
+  text-transform: capitalize;
+  margin-left: -15px;
+  background: blue;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  cursor: pointer;
+  transition: 0.3s;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.taskList .myList li .check:hover {
+  background-color: #8787e7;
+}
+.checkedTask {
+  text-decoration: line-through;
+}
+.removeAll {
+  border: none;
+  width: 100px;
+  height: 37px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  margin: 20px auto;
+  background: red;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+}
+.removeAll:hover {
+  background-color: #e78787;
+}
